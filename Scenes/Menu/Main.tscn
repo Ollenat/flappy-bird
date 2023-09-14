@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://daf05imopy800"]
+
+[ext_resource type="Script" path="res://Scenes/Menu/Menu.gd" id="1_kowa7"]
+
+[node name="MainScene" type="Node2D"]
+
+[node name="Menu" type="Node2D" parent="."]
+script = ExtResource("1_kowa7")
+
+[node name="Play" type="Button" parent="Menu"]
+offset_left = 261.0
+offset_top = 152.0
+offset_right = 859.0
+offset_bottom = 329.0
+text = "Play"
+
+[node name="Quit" type="Button" parent="Menu"]
+offset_left = 263.0
+offset_top = 418.0
+offset_right = 861.0
+offset_bottom = 595.0
+text = "Quit"
+
+[connection signal="pressed" from="Menu/Play" to="Menu" method="_on_play_pressed"]
+[connection signal="pressed" from="Menu/Quit" to="Menu" method="_on_quit_pressed"]
