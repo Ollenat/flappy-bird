@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/Menu/Menu.gd" id="1_kowa7"]
 
 [node name="MainScene" type="Node2D"]
+metadata/_edit_vertical_guides_ = [-684.0]
 
 [node name="Menu" type="Node2D" parent="."]
 position = Vector2(4, 0)
@@ -20,7 +21,7 @@ offset_right = 299.5
 offset_bottom = -25.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Play"
+text = "PLAY"
 
 [node name="Quit" type="Button" parent="Menu"]
 anchors_preset = 5
