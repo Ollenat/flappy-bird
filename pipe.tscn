@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6h5jdivy13hc"]
+
+[ext_resource type="Texture2D" uid="uid://qmqde3fdg0b5" path="res://icon.svg" id="1_dc3ko"]
+[ext_resource type="Script" path="res://pipe.gd" id="1_mws2c"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e6lh7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rmh78"]
+size = Vector2(33, 215)
+
+[node name="Pipe" type="Node2D"]
+script = ExtResource("1_mws2c")
+
+[node name="AnimatableBody2D2" type="AnimatableBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_e6lh7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D2"]
+position = Vector2(0, -199)
+shape = SubResource("RectangleShape2D_rmh78")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_e6lh7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+position = Vector2(-2, 204)
+shape = SubResource("RectangleShape2D_rmh78")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 294)
+scale = Vector2(0.44, 3.12)
+texture = ExtResource("1_dc3ko")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-1, -289)
+rotation = 3.14159
+scale = Vector2(0.44, 3.12)
+texture = ExtResource("1_dc3ko")

@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://b18e7flucukqt"]
+[gd_scene load_steps=6 format=3 uid="uid://b18e7flucukqt"]
 
 [ext_resource type="Texture2D" uid="uid://qmqde3fdg0b5" path="res://icon.svg" id="1_pt4y2"]
 [ext_resource type="PackedScene" uid="uid://dcewvas4k1ow4" path="res://Scenes/Player/Player.tscn" id="2_47vvv"]
+[ext_resource type="PackedScene" uid="uid://cafbudq1blsog" path="res://pipe_spawner.tscn" id="3_g34sc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eb3qu"]
 size = Vector2(134, 132)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v4pr2"]
+size = Vector2(189, 531)
 
 [node name="World" type="Node2D"]
 
@@ -19,3 +23,25 @@ shape = SubResource("RectangleShape2D_eb3qu")
 
 [node name="Player" parent="." instance=ExtResource("2_47vvv")]
 position = Vector2(600, 206)
+
+[node name="PipeSpawner" parent="." node_paths=PackedStringArray("delete_pipe_area", "pipe_spawn_point", "pipe_spawn_timer") instance=ExtResource("3_g34sc")]
+delete_pipe_area = NodePath("Area2D")
+pipe_spawn_point = NodePath("Node2D")
+pipe_spawn_offset_max = Vector2(0, 50)
+pipe_spawn_offset_min = Vector2(0, -50)
+pipe_spawn_timer = NodePath("Timer")
+pipe_scene_path = "res://pipe.tscn"
+
+[node name="Area2D" type="Area2D" parent="PipeSpawner"]
+position = Vector2(-15, 222)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PipeSpawner/Area2D"]
+shape = SubResource("RectangleShape2D_v4pr2")
+
+[node name="Node2D" type="Node2D" parent="PipeSpawner"]
+position = Vector2(1000, 200)
+
+[node name="Timer" type="Timer" parent="PipeSpawner"]
+process_callback = 0
+wait_time = 0.115
+autostart = true
